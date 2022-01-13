@@ -20,7 +20,17 @@ function addUser({ username, password }) {
   return Promise.resolve(newUsers);
 }
 
+function login(users) {
+  const user = { username: users.username };
+  if (users.username !== user.username) {
+    return Promise.resolve(`welcome ${user.username}`);
+  } else {
+    return Promise.resolve("error");
+  }
+}
+
 module.exports = {
   getUsers,
   addUser,
+  login,
 };

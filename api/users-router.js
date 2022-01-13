@@ -20,4 +20,9 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.post("/login", async (req, res) => {
+  const login = await Users.login(req.body);
+  res.json(login);
+});
+
 module.exports = router;
