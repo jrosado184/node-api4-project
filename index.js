@@ -1,9 +1,15 @@
 const express = require("express");
+const router = require("./api/users-router");
 
 const server = express();
 
-server.get("/hello", (req, res) => {
-  res.json("helllllllllo");
+server.use(express.json());
+server.use("/api/users", router);
+
+const port = process.env.PORT || 9000;
+
+server.listen(port, () => {
+  console.log(`listening on port ${port}`);
 });
 
-server.listen(process.env.PORT || 9000);
+module.exports = server;
